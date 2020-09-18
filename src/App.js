@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import { createContext, useState } from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import HomePage from './Components/HomePage/HomePage';
+import BookingPage from './Components/BookingPage/BookingPage';
+import NavBar from './Components/NavBar/NavBar';
+import LogInPage from './Components/LogInPage/LogInPage';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import SearchPage from './Components/SearchPage/SearchPage';
+
+export const userStatusContext = createContext();
 
 function App() {
+  const[userStatus, setUserStatus] = useState({
+    isNewUser: false,
+  });
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <userStatusContext.Provider value={[userStatus, setUserStatus]}>
+    <Router>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/Booking/:category" component={BookingPage} />
+        <Route exact path="/login" component={LogInPage} />
+        <PrivateRoute path="/searches">
+          <SearchPage />
+        </PrivateRoute>
+      </Switch>
+    </Router>
+    </userStatusContext.Provider>
   );
 }
 
