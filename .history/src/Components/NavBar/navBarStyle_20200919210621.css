@@ -1,0 +1,31 @@
+/* .whiteVersion{
+    
+} */
+
+.whiteVersion .logo{
+    width: 100px;
+    margin: 0px;
+    filter: invert(100%);
+}
+
+/* .blackVersion{
+
+} */
+
+.blackVersion .logo {
+    width: 100px;
+    color: white;
+    margin: 0px;
+    filter: invert(100%);
+}
+
+.myBtn{
+    background-color: rgb(255, 166, 0);
+    border: 1px solid rgb(255, 166, 0);
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: all 600ms;
+}
+.myBtn:hover{
+    background-color:rgb(255, 115, 0);
+}

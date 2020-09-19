@@ -1,0 +1,21 @@
+.pictureSetUp{
+    margin-bottom: 3%;
+}
+.pictureSetUp > img{
+    /* Margin-top: 5%; */
+    width: 50vw;
+    margin: 5% 24vw;
+    margin-bottom: 0%;
+}
+.pictureSetUp > button{
+
+    background-color: rgb(255, 166, 0);
+    border: 1px solid rgb(255, 166, 0);
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: all 600ms;
+}
+
+.pictureSetUp > button:hover{
+    background-color: rgb(255, 94, 0);
+}
